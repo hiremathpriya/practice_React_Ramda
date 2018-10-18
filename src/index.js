@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react' // Fragment allows us to wrap up multiple things to return from a component
 import { render } from 'react-dom'
 import { map } from 'ramda' // import your Ramda functions here
-
+// import {find} from 'ramda'
 // Here are the todos
+
 const todolist = ['Do something', 'Do something else', 'Hurry up']
+
 
 // This is a TodoList React component that takes a list of "todo" strings
 // wraps them in <li> elements and returns them
@@ -17,6 +19,9 @@ function TodoList ({ todos }) {
   )
 }
 
+
+
+
 // This is a TodoPanel React component (we just made these up). It takes the
 // title and the list of todos as props. Then it returns a <div> with an <h1>
 // inside and puts the `title` in that. And it returns a <ul> element and inside
@@ -24,11 +29,12 @@ function TodoList ({ todos }) {
 // props along to the TodoList in that components props.
 // We use Fragment to return two things -- the <h1> and the <TodoList>
 // without having to wrap them in a <div> or similar.
-function TodoPanel ({ title, todos }) {
+function TodoPanel ({ title, todos,users }) {
   return (
     <Fragment>
       <h1>{title}</h1>
       <TodoList todos={todos} />
+      
     </Fragment>
   )
 }
@@ -42,6 +48,7 @@ function App () {
   return (
     <div>
       <TodoPanel todos={todolist} title='My Todos' />
+       
     </div>
   )
 }
